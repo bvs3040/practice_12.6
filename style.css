@@ -21,14 +21,7 @@ h2 {
     padding: 5px;   
 }
 
-.header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    height: 25%;
-    margin-bottom: 3em;
-    background-color: #caf1ca;
-}
+
 
 ul  {
     display: flex;

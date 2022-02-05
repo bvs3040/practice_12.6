@@ -10,30 +10,17 @@
     
     <div class="flex-container">
 
-        <div class="header">     
-               
-           <?php
-            //include 'array.inc.php';
-            
-
-            ?>        
-               
-        </div>       
-     
+           
         <div class="about_me">
          
-          <h1>  Разбивка </h1>
+          <h1>  Разбивка/Склеивание </h1>
 
             <div class="data">
                 <div class="fullname">
                     <p>
-                    <?php 
-                    
-                    //print_r(count($example_persons_array));                                      
-                    ?> <br>
-                    <?php 
-                    include 'actionsfullname.inc.php';
-                    ?>                                     
+                       <?php 
+                        include 'actionsfullname.inc.php';
+                       ?>                                     
                     </p> 
            
                     <p> Мне
