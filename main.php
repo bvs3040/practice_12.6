@@ -19,7 +19,7 @@
                 <div class="fullname">
                     <p>
                        <?php 
-                        include 'actionsfullname.inc.php';
+                        include 'function.inc.php';
                        ?>                                     
                     </p> 
            
