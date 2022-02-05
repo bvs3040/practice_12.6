@@ -1,0 +1,135 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@500&display=swap" rel="stylesheet');
+
+html,
+body {
+    height: 100%;
+}
+
+.greetings,
+p,
+h1, 
+h2 {
+    font-family: 'Noto Serif JP', serif;
+}
+
+.flex-container {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    max-width: 1200px;
+    background-color: #E6E6E6;
+    padding: 5px;   
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 25%;
+    margin-bottom: 3em;
+    background-color: #caf1ca;
+}
+
+ul  {
+    display: flex;
+    list-style-type: none;
+}
+
+ul li {
+    margin-right: 20px;
+}
+
+li a {
+    text-decoration: none;
+    font-family: 'Noto Serif JP', serif;
+    font-size: 1.5rem;
+    color: #848484;
+    font-weight: 800;
+}
+
+.logo img {
+    width: 70px;
+    height: 70px;
+    margin-left: 10px;
+}
+
+.about_me {
+    display: flex;
+    flex-direction: column;
+    flex: 1 0 auto;
+}
+
+.data {
+    display: flex;
+    align-items: center;
+}
+
+.fullname {
+   
+    flex-basis: 1500px;
+}
+
+.myImg {
+    margin-top: 150px;
+    margin-right: 20px;
+    padding-left: 20px;
+    flex-basis: 360px;
+    padding-right: 20;
+}
+
+.knowledge {
+    display: flex;   
+    justify-content: center;
+    margin-bottom: 1em;
+    color: rgb(37, 112, 20);
+    font-size: 1.2rem;
+}
+
+.article {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 25%;
+    margin-bottom: 1em;
+    background-color: #d5d8d5; 
+}
+
+
+p {
+    font-size: 1.2rem;
+    color: #08298A;
+    padding-left: 20px;
+}
+
+.text {
+    font-size: 1rem;
+    color: #585858;
+}
+
+
+h2 {
+    text-align: center;
+    color: #424242;
+}
+
+h1 {
+    color: #08298A;
+    text-align: center;
+    font-size: 2rem;
+}
+
+.footer {
+    background-color: #aae7ae;
+    flex: 0 0 auto;
+}
+
+input{
+    color: rgb(37, 112, 20);
+    font-size: 1.2rem;
+    border: solid 2px #08298A;
+}
+
+form{
+    color: rgb(37, 112, 20);
+    font-size: 1.2rem;
+}
