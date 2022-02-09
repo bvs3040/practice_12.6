@@ -6,6 +6,7 @@
         $partFullname = ['surname','name','patronomyc'];
         $fullnameArray = explode(' ', $fullname);
         $partsFromFullname = array_combine($partFullname,$fullnameArray);
+
         return $partsFromFullname;
     }
 
@@ -13,6 +14,7 @@
            
     function getFullnameFromParts($surname, $name, $patronomyc){
         $fullnameFromParts = mb_convert_case("$surname" . ' ' . "$name" . ' ' . "$patronomyc", MB_CASE_TITLE_SIMPLE);
+
         return $fullnameFromParts;
     }
 
@@ -22,8 +24,10 @@
         $arr = getPartsFromFullname($fullname);
         $name = $arr['name'];
         $surname = $arr['surname'];
+
         $shortSurname = mb_substr($surname, 0, 1);
         $shortName = "$name" . ' ' . "$shortSurname.";
+
         return $shortName;
     }
 
@@ -58,12 +62,12 @@
         }
 
         $genderFromName = $genderSign <=> 0;
+
         return $genderFromName;
     }
 
 // функция Определение возрастно-полового состава
-    include 'array.inc.php';
-
+    
     function getGenderDescription($arr){
         $count=count($arr);
         $male=$female=$unknown = 0;
@@ -77,13 +81,15 @@
         $percentMale = round($male/$count*100, $precision = 1);
         $percentFemale = round($female/$count*100, $precision = 1);
         $percentUnknown = round($unknown/$count*100, $precision = 1);
+
         $genderDescription = <<<GENDER
         Гендерный состав аудитории:<br>
         ---------------------------<br>
         Мужчины - $percentMale%<br>
         Женщины - $percentFemale%<br>
         Не удалось определить - $percentUnknown%<br>
-        GENDER;          
+        GENDER;      
+
         return $genderDescription;
     }
 
@@ -91,6 +97,7 @@
 
     function  getPerfectPartner ($surname, $name, $patronomyc, $arr){
         $userFullName = getFullnameFromParts($surname, $name, $patronomyc);
+
         if ($userGender = getGenderFromName($userFullName)) {
             do {
                 $randomPersonFullName = $arr[mt_rand(0, (count($arr)-1))]['fullname'];
@@ -107,9 +114,9 @@
             ♡ Идеально на $percentageOfHappiness% ♡        
             LOVE;
 
-        } else $perfectPartner = "Для $userFullName не возможно определить пару!";                 
+        } else $perfectPartner = "Для $userFullName не возможно определить пару!"; 
+          
         return $perfectPartner; 
     }
-   //print_r( getPerfectPartner ('бондаренка', 'ильа', 'ВАДИмович', $example_persons_array));
 ?> 
  

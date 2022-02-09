@@ -7,65 +7,57 @@
     <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+ <?php 
+    include 'function.inc.php';
+    include 'array.inc.php';
+ ?>           
     
-    <div class="flex-container">
+    <div class="flex-container">          
+            <p> 
+                <?php  
+                 echo getGenderDescription($example_persons_array); 
+                ?>          
+            </p>
+            <h4> Введите Ф.И.О.:</h4>          
+            <form method="post" action="main.php">
+                <input name="surname" type="text" placeholder="Фамилия (Иванов)" autofocus /><br><br>
+                <input name="name" type="text"  placeholder="Имя (Иван)" /><br><br>
+                <input name="patronomyc" type="text"  placeholder="Отчество (Иванович)" /><br><br>
+                <input type=submit value="Ввести">
+            </form>
+                <?php
+                    if (!empty($_POST["surname"])) {
+                        $surname = $_POST["surname"];
+                    } else {
+                        $surname = 'Иванов';
+                    }
 
-           
-        <div class="about_me">
-         
-          <h1>  Разбивка/Склеивание </h1>
+                    if (!empty($_POST["name"])) {
+                    $name = $_POST["name"];
+                    } else {
+                        $name = 'Иван';
+                    }
 
-            <div class="data">
-                <div class="fullname">
-                    <p>
-                       <?php 
-                        include 'function.inc.php';
-                       ?>                                     
-                    </p> 
-           
-                    <p> Мне
-                    <?php  echo $age;   ?>          
-                    лет </p>
-                    <p> <?php echo $q; ?> </p>
-                    <p> Введите две переменные </p>
-
-                    <form method="post" action="index.php">
-                      $x<input name="firstVariable" type="number" value="16" /><br><br>
-                      $y<input name="secondVariable" type="number"  value="7" /><br><br>
-                        <input type=submit value="Ввести">
-                    </form><br><br>                               
-                </div>
-            </div>
-
-            <div class="knowledge">
-                                                                     
-                    <?php  include 'knowledge.inc.php'; ?><br>
-
-                    <?php  echo 'тип переменной x: ' . gettype($x); ?><br>
-                   
-                    <?php  echo $a, ' ', $b, ' ', $c; ?> <br>
-                                        
-                    <?php echo $d;?><br>
-
-                    <?php echo 'Путь до директории ',__DIR__ ;?><br>
-
-                   
-                     
-                                      
-            </div>
-                        
+                    if (!empty($_POST["patronomyc"])) {
+                        $patronomyc = $_POST["patronomyc"];
+                    } else {
+                        $patronomyc = 'Иванович';
+                    }
+                ?>
+            <h4> Идеальная пара: </h4>
+            <p>
+                <?php 
+                    echo getPerfectPartner ($surname, $name, $patronomyc, $example_persons_array); 
+                ?> 
+            </p>
+                
+               
         </div>
         
-        <div class="article">
-            <p id="lorem" class="text">
-            <?php echo $str;?>
-            </p>
-        </div>
-
-            <?php include 'footer.inc.php' ?>
+        
 
     </div>
-    <script src="index.js"></script>
+    
 
 </body>
 </html>
