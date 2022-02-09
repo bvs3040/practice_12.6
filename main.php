@@ -49,9 +49,8 @@
 
                     <?php echo 'Путь до директории ',__DIR__ ;?><br>
 
-                    <?php echo  'Время выполнения скрипта: ' . (microtime(true) - $start) . ' sec.';?><br>
+                   
                      
-                    <?php include 'grade.inc.php'; ?><br>
                                       
             </div>
                         

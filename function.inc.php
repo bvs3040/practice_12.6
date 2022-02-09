@@ -12,7 +12,7 @@
 // функция склеивания ФИО
            
     function getFullnameFromParts($surname, $name, $patronomyc){
-        $fullnameFromParts = "$surname" . ' ' . "$name" . ' ' . "$patronomyc";
+        $fullnameFromParts = mb_convert_case("$surname" . ' ' . "$name" . ' ' . "$patronomyc", MB_CASE_TITLE_SIMPLE);
         return $fullnameFromParts;
     }
 
@@ -87,12 +87,29 @@
         return $genderDescription;
     }
 
+// функция Идеальный подбор пары
 
+    function  getPerfectPartner ($surname, $name, $patronomyc, $arr){
+        $userFullName = getFullnameFromParts($surname, $name, $patronomyc);
+        if ($userGender = getGenderFromName($userFullName)) {
+            do {
+                $randomPersonFullName = $arr[mt_rand(0, (count($arr)-1))]['fullname'];
+                $randomPersonGender = getGenderFromName($randomPersonFullName);
+            } 
+            while ($userGender<>-$randomPersonGender);
 
+            $userShortName = getShortName($userFullName);
+            $randomPersonShortName = getShortName($randomPersonFullName);
+            $percentageOfHappiness = round(mt_rand(5000, 9999)/100, $precision = 2);
 
+            $perfectPartner = <<<LOVE
+            $userShortName + $randomPersonShortName = <br>
+            ♡ Идеально на $percentageOfHappiness% ♡        
+            LOVE;
 
-
-
-
-
-?>        
+        } else $perfectPartner = "Для $userFullName не возможно определить пару!";                 
+        return $perfectPartner; 
+    }
+   //print_r( getPerfectPartner ('бондаренка', 'ильа', 'ВАДИмович', $example_persons_array));
+?> 
+ 
